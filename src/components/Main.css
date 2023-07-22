@@ -47,11 +47,11 @@
     align-self: center;
 }
 
-.owner{
+/* .owner{
     display: flex;
     margin: 10px 0;
     height: 50px;
-}
+} */
 
 .owner > div {
     margin: 0 5px;
@@ -76,10 +76,10 @@
     flex: 1;
 } */
 
-/* .ownerNameAndHandel{
+.ownerNameAndHandel{
     flex: 1;
 
-} */
+}
 
 .ownerAccount {
     color: #fff;
