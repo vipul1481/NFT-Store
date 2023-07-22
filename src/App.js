@@ -5,6 +5,7 @@ import CollectionCard from './components/CollectionCard';
 import { useState , useEffect } from 'react';
 import axios from 'axios';
 import Punklist from './components/Punklist';
+import Main from './components/Main';
 function App() {
     //  const[punkListData, setPunkListData]= useState([])
     //  async function fetchDataFromAPI() {
@@ -38,17 +39,26 @@ function App() {
     //     console.error('Error occurred:', error);
     //   });
       // 
-      const punkListData =[{id: 0, naam:'Asta', value: 7, image:'https://bafybeicorqtrzlcbwfvp445vg6t56gnv7kgevljaren5orxq5dsq5uw7tq.gateway.ipfscdn.io/2.jpg' },
-      {id: 1, naam:'Asta', value: 7, image:'https://bafybeicorqtrzlcbwfvp445vg6t56gnv7kgevljaren5orxq5dsq5uw7tq.gateway.ipfscdn.io/2.jpg' },
-      {id: 2, naam:'Asta', value: 7, image:'https://bafybeicorqtrzlcbwfvp445vg6t56gnv7kgevljaren5orxq5dsq5uw7tq.gateway.ipfscdn.io/2.jpg' },
-      {id: 3, naam:'Asta', value: 7, image:'https://bafybeicorqtrzlcbwfvp445vg6t56gnv7kgevljaren5orxq5dsq5uw7tq.gateway.ipfscdn.io/2.jpg' },
-      {id: 4, naam:'Asta', value: 7, image:'https://bafybeicorqtrzlcbwfvp445vg6t56gnv7kgevljaren5orxq5dsq5uw7tq.gateway.ipfscdn.io/2.jpg' },
-      {id: 5, naam:'Asta', value: 7, image:'https://bafybeicorqtrzlcbwfvp445vg6t56gnv7kgevljaren5orxq5dsq5uw7tq.gateway.ipfscdn.io/2.jpg' }]
+      const punkListData =[{id: 0, naam:'King Punk', value: 7, image:'https://i.seadn.io/gae/WrmpbMJMKmGfjJRCu2b0Bp_Pk2iPZcuRXyqPj7p3-I19DKHlIluigjdiwsnUZA28ssIQcydOnYgD2f6Qra05gFMZHWuojV1JSbM?auto=format&dpr=1&w=384' },
+      {id: 1, naam:'Panda', value: 19, image:'https://i.seadn.io/gae/wZo2qSsG8FOu_pFmHiZu1NJxPw7x1lWdiXeaoSN2aQF6Fx0oq2qH_KjXtxkf9yXrgcHBVUZvvXiPwWGWo4XH0RCXZEim_O77fBquXw?auto=format&dpr=1&w=1000' },
+      {id: 2, naam:'3Landers', value: 11, image:'https://i.seadn.io/gcs/files/18ff688618243cf9d9e30db6d81cdbd2.png?auto=format&dpr=1&w=384' },
+      {id: 3, naam:'Dogo', value: 13, image:'https://i.seadn.io/gcs/files/66ed7ca03d1656a0f9eaf680625e22c9.jpg?auto=format&dpr=1&w=384' },
+      {id: 4, naam:'Messi', value: 23, image:'https://i.seadn.io/gae/k8d4X_QVsEutq-ZVqDe1-0n_5B30oMVW6-m4IMDPbMW7_lrs-y0YVUp0uJJDI2vphnER9p-dwtvO0bvWKb0Qj-8dSAmluiCpkqE0jg?auto=format&dpr=1&w=384' },
+      {id: 5, naam:'MoonBirds', value: 17, image:'https://i.seadn.io/gcs/files/572a78cfcee9456f0661af256769f950.png?auto=format&dpr=1&w=1000' }]
+      
+      const [selectedPunk,setSelectedPunk] = useState(0)
+
 
   return (
   <div className='app'>
     <Header />
-    <Punklist punkListData={punkListData} />
+    {
+      punkListData.length > 0 && (
+    <>
+    <Main punkListData={punkListData} selectedPunk={selectedPunk}/>
+    <Punklist punkListData={punkListData} setSelectedPunk={setSelectedPunk} />
+    </>
+      )}
   </div>
   )
 }

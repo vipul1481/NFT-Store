@@ -3,11 +3,11 @@ import CollectionCard from './CollectionCard'
 import './Punklist.css'
 
 
-const Punklist = ({punkListData}) => {
+const Punklist = ({punkListData,setSelectedPunk}) => {
   return (
     <div className='punkList'>
       {punkListData.map(punk =>(
-        <div>
+        <div onClick={() => setSelectedPunk(punk.id)}>
           <CollectionCard 
           key={punk.id}
           id={punk.id}
